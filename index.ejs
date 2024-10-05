@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do Application</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">To Do Application</h1>
+        <div class="form">
+            <form method="post" action="/create">
+                <input class="tlt" type="text" name="title" placeholder="Title" required="">
+                <input class="tlt" type="text" name="description" placeholder="Description" required>
+                <input class="btn" type="submit" value="Add Task">
+            </form>
+        </div>
+        
+        <div class="tasks">
+            <% if (tasks.length > 0) { %>
+                <ul>
+                    <% tasks.forEach(task => { %>
+                        <li><strong><%= task.title %></strong>:<br> <%= task.description %></li>
+                    <% }) %>
+                </ul>
+            <% } else { %>
+                <p>No tasks yet. Add a task above!</p>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>
